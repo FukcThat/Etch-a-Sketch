@@ -4,7 +4,7 @@ body {
 }
 
 .GridContainer {
-
+    border: #A53060 1px dotted;
 }
 
 .Row {
@@ -20,8 +20,10 @@ body {
     
     height: calc(500px/16);
     width: calc(500px/16);
+
+    transition: all 0.3s ease-out;
 }
 
 .Box:hover {
-    background-color: red;
+    background-color: #A53060;
 }
