@@ -15,7 +15,7 @@ body {
 }
 
 .Box {
-    background-color: dark palevioletred;
+    background-color: dark pink;
     border: 1px solid black;
     
     height: calc(500px/16);
