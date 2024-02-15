@@ -1,12 +1,23 @@
-const GridContainer = document.querySelector(".GridContainer")
+const GridContainer = document.querySelector(".GridContainer");
+const colorPicker = document.getElementById('colorPicker');
 const resetButton = document.getElementById('resetButton');
 let isDrawing = false;
+let currentColor = '#A53060';
+
+colorPicker.addEventListener('change', (e) => {
+    currentColor = e.target.value;
+});
 
 function resetGrid() {
     const boxes = document.querySelectorAll('.Box');
     boxes.forEach(box => {
         box.style.backgroundColor = 'pink'; 
     });
+}
+
+function changeBoxColor(box) {
+    //box.style.backgroundColor = currentColor;
+    box.dataset.color = currentColor;
 }
 
 resetButton.addEventListener('click', resetGrid);
@@ -20,16 +31,21 @@ for (var row = 0; row < 16 ; row++) {
     {
         let Box = document.createElement("div")
         Box.classList.add("Box")
+        Box.dataset.color = "pink";
 
-        Box.addEventListener('click', () => {
-            Box.style.backgroundColor = '#A53060';
-        });
+        console.log(Box);
 
-        Box.addEventListener('mouseover', () => {
-            if (isDrawing) {
-                Box.style.backgroundColor = '#A53060';
-            }
-        });
+        Box.addEventListener('click', () => changeBoxColor(Box));
+            Box.addEventListener('mouseover', () => {
+                if (isDrawing) {
+                    changeBoxColor(Box);
+                }
+                Box.style.backgroundColor = currentColor;
+
+            });
+        Box.addEventListener("mouseleave", () => {
+            Box.style.backgroundColor = Box.dataset.color
+        })
 
         Row.appendChild(Box)
     }
