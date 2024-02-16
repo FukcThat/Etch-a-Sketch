@@ -22,6 +22,12 @@ function changeBoxColor(box) {
 
 resetButton.addEventListener('click', resetGrid);
 
+function resizeCanvas() {
+    prompt("Please set the number of squares on each side to resize the canvas:")
+}
+
+changeCanvasSize.addEventListener('click', resizeCanvas);
+
 for (var row = 0; row < 16 ; row++) {
     
     let Row = document.createElement("div")
@@ -32,8 +38,6 @@ for (var row = 0; row < 16 ; row++) {
         let Box = document.createElement("div")
         Box.classList.add("Box")
         Box.dataset.color = "pink";
-
-        console.log(Box);
 
         Box.addEventListener('click', () => changeBoxColor(Box));
             Box.addEventListener('mouseover', () => {
@@ -59,3 +63,4 @@ document.addEventListener('mousedown', (e) => {
 });
 
 document.addEventListener('mouseup', () => isDrawing = false);
+
