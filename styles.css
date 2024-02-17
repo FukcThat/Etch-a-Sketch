@@ -12,11 +12,9 @@ body {
     border: 1px solid black;
     border-bottom: 0px;
     border-right: 0px;
-    width: 500px;
 }
 
 .Row {
-    height: calc(500px/16);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,8 +24,5 @@ body {
 .Box {
     background-color: dark pink;
     border-right: 1px solid black;
-    height: calc(500px/16);
-    width: calc(500px/16);
-
     transition: all 0.3s ease-out;
 }

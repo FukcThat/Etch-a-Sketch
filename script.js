@@ -22,40 +22,53 @@ function changeBoxColor(box) {
 
 resetButton.addEventListener('click', resetGrid);
 
-function resizeCanvas() {
-    prompt("Please set the number of squares on each side to resize the canvas:")
-}
+function CreateGrid(num) {
 
-changeCanvasSize.addEventListener('click', resizeCanvas);
+    const boxes = document.querySelectorAll('.Box');
 
-for (var row = 0; row < 16 ; row++) {
-    
-    let Row = document.createElement("div")
-    Row.classList.add("Row")
+    boxes.forEach(box => {
+        box.remove()
+    })
 
-    for (var col = 0; col < 16; col++)
-    {
-        let Box = document.createElement("div")
-        Box.classList.add("Box")
-        Box.dataset.color = "pink";
+    const rows = document.querySelectorAll('.Row');
+    rows.forEach(row => {
+        row.remove()
+    })
 
-        Box.addEventListener('click', () => changeBoxColor(Box));
-            Box.addEventListener('mouseover', () => {
-                if (isDrawing) {
-                    changeBoxColor(Box);
-                }
-                Box.style.backgroundColor = currentColor;
+    for (var row = 0; row < num; row++) {
+        
+        let Row = document.createElement("div")
+        Row.classList.add("Row")
+        Row.style.height = (500/num ).toString() + 'px';
 
-            });
-        Box.addEventListener("mouseleave", () => {
-            Box.style.backgroundColor = Box.dataset.color
-        })
+        for (var col = 0; col < num; col++)
+        {
+            let Box = document.createElement("div")
+            Box.classList.add("Box")
+            Box.dataset.color = "pink";
+            Box.style.height = (500/num ).toString() + 'px';
+            Box.style.width = (500/num ).toString() + 'px';
 
-        Row.appendChild(Box)
+            Box.addEventListener('click', () => changeBoxColor(Box));
+                Box.addEventListener('mouseover', () => {
+                    if (isDrawing) {
+                        changeBoxColor(Box);
+                    }
+                    Box.style.backgroundColor = currentColor;
+
+                });
+            Box.addEventListener("mouseleave", () => {
+                Box.style.backgroundColor = Box.dataset.color
+            })
+
+            Row.appendChild(Box)
+        }
+        GridContainer.appendChild(Row)
+        
     }
-    GridContainer.appendChild(Row)
-    
 }
+
+CreateGrid(16);
 
 document.addEventListener('mousedown', (e) => {
     e.preventDefault();
@@ -63,4 +76,20 @@ document.addEventListener('mousedown', (e) => {
 });
 
 document.addEventListener('mouseup', () => isDrawing = false);
+
+function resizeCanvas() {
+    let popUp = prompt("How many squares would you like on each side?")
+    let num = parseInt(popUp)
+
+    while (num >= 100) {
+        let Error = prompt("Please select a number smaller than 100")
+        num = parseInt(Error)
+    }
+    
+    console.log(num);
+    CreateGrid(num);
+}
+
+
+changeCanvasSize.addEventListener('click', resizeCanvas);
 
