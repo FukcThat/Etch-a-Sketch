@@ -8,9 +8,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="GridContainer"></div>
-    <input type="color" id="colorPicker" value="#A53060" />
-    <button id="resetButton">Reset Canvas</button>
-    <button id="changeCanvasSize">Change canvas size</button>
+    <img class="logo" src="EtchASketchLogo.png" />
+    <div class="main-wrapper">
+      <div class="controls-container">
+        <label>
+          Color Picker
+          <input type="color" id="colorPicker" value="#1f1d1d" />
+        </label>
+        <div class="button-wrapper">
+          <button id="resetButton">
+            <img class="reset-btn" src="ri--reset-left-fill.png" />
+          </button>
+          <button id="changeCanvasSize">
+            <img class="resize-canvas-btn" src="ph--resize-fill.png" />
+          </button>
+        </div>
+      </div>
+      <div class="grid-wrapper">
+        <div class="GridContainer"></div>
+      </div>
+    </div>
   </body>
 </html>

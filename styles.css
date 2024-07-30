@@ -1,14 +1,86 @@
 
 body {
-    background-color: pink;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+    background: linear-gradient(rgb(160, 25, 29), rgb(87, 6, 8));
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
+h2 {
+    font-size: 3rem;
+}
+
+label {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    height: 4rem;
+    width: 15rem;
+    border: none;
+    background-color: rgb(110, 8, 8);
+}
+
+button {
+    height: 5rem;
+    width: 5rem;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px;
+    transition: 0.5s ease-out;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(212, 212, 212);
+    transform: translate(0px, -5px) rotate(-90deg);
+}
+
+.logo {
+    padding: 2rem;
+    height: 10rem;
+    width: auto;
+}
+
+.main-wrapper {
+    display: flex;
+}
+
+.controls-container {
+    height: 50dvh;
+    position: absolute;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.reset-btn, .resize-canvas-btn {
+    height: 3rem;
+    width: 3rem;
+}
+
+.grid-wrapper {
+    background-color: rgb(230, 217, 217);
+}
+
 .GridContainer {
-    border: #A53060 1px dotted;
     border: 1px solid black;
     border-bottom: 0px;
     border-right: 0px;
@@ -22,7 +94,8 @@ body {
 }
 
 .Box {
-    background-color: dark pink;
+    background-color: dark rgb(109, 109, 109);
     border-right: 1px solid black;
     transition: all 0.3s ease-out;
 }
+
